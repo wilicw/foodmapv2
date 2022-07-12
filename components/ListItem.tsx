@@ -11,7 +11,7 @@ interface ListProp {
 const StoreItem = ({ id, image, name }: ListProp) => (
   <Link href={`/${id}`} >
     <div className={style.card}>
-      <Image src={image} alt={name} width={100} height={100} />
+      <img src={image} alt={name} width="100%" />
       <h1>{name}</h1>
     </div>
   </Link>
