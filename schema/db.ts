@@ -1,10 +1,10 @@
 import * as mongoose from 'mongoose';
-import dev_config from '../config/main';
 
 const connectdb = async () => {
   if (mongoose.connection.readyState == 1) return;
+  const mongo_uri: string = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`;
   await mongoose.connect(
-    `mongodb://${dev_config.user}:${dev_config.pass}@${dev_config.host}:${dev_config.port}/${dev_config.db}`,
+    mongo_uri,
     (err) => {
       if (err)
         console.error('error:' + err);
